@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Info from "./Info";
 function App() {
+  document.title = "Dominik The North American Dream";
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class="div1">
+        <h1 class="brand marginLeft">KRIS</h1>
+        <h1 class="brand marginLeft">TIAN</h1>
+        <h1 class="brand marginLeft">CAGE</h1>
+      </div>
+      <div class="inclination">
+        <Info></Info>
+        <div class="toTheCenter flexing">
+          <img src="https://bloggertastic.com/wp-content/uploads/2023/11/dominik-mysterio-w1.jpg" />
+          <p>I want to know what love is, why don't you show me?</p>
+        </div>
+        <div class="toTheRight flexing">
+          <img src="https://bloggertastic.com/wp-content/uploads/2023/11/dominik-mysterio-w1.jpg" />
+          <p>I want to know what love is, why don't you show me?</p>
+        </div>
+      </div>
     </div>
   );
 }
