@@ -55,6 +55,7 @@
 }
 .brand:hover {
   text-shadow: 2px 3px #61dafb;
+  background-color: #d42424;
 }
 .marginLeft {
   margin-left: 20px;

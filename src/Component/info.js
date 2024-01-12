@@ -1,7 +1,7 @@
 import "../Design/home.css";
 function Info() {
   return (
-    <div class="toTheLeft flexing">
+    <div class="toTheLeft flexing border-bruise">
       <img
         alt="Dominik"
         src="https://bloggertastic.com/wp-content/uploads/2023/11/dominik-mysterio-w1.jpg"
