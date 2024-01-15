@@ -1,12 +1,11 @@
 import "./App.css";
-import Info from "./Info";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Component/navbar";
 import Home from "./Screen/Home";
 import Tian from "./Screen/tian";
 import Cage from "./Screen/Cage";
+import BeautifulLove from "./Screen/BeautifulLove";
 function App() {
-  document.title = "Dominik The North American Dream";
   return (
     <div className="App">
       <BrowserRouter>
@@ -17,7 +16,7 @@ function App() {
             <Route path="/" element={<Home></Home>} />
             <Route path="/tian" element={<Tian></Tian>} />
             <Route path="/cage" element={<Cage></Cage>} />
-            <Route path="/btflv" />
+            <Route path="/btflv" element={<BeautifulLove></BeautifulLove>} />
           </Route>
         </Routes>
       </BrowserRouter>

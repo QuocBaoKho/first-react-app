@@ -27,6 +27,12 @@
 .App-link {
   color: #61dafb;
 }
+.arithmetic {
+  border-radius: 10px;
+  border-style: solid;
+  margin: 20px;
+  padding: 20px;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -106,11 +112,29 @@ div img {
 }
 .hidden {
   /* visibility: collapse; */
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
 }
 li:hover {
   background-color: #a6ab63;
 }
 .drop_down:hover {
   background-color: #090a0a;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade_In_Choice {
+  animation: fadeIn 1s;
+}
+.answerBTN:hover {
+  background-color: #61dafb;
 }
