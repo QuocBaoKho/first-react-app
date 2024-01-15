@@ -52,7 +52,7 @@ function Navbar() {
             ></CiMenuBurger>
           </div>
           <div
-            className={`${open === false ? "hidden" : ""}`}
+            className={`${open === false ? "hidden" : "fade_In_Choice"}`}
             style={{
               backgroundColor: "yellow",
               maxWidth: 270,
@@ -77,12 +77,13 @@ function Navbar() {
         <Link to="/Cage" style={linkStyle}>
           <h1 class="brand marginLeft">CAGE</h1>
         </Link>
-        <h1 class="brand marginLeft">BEAUTIFUL LOVE</h1>
+        <Link to="/btflv" style={linkStyle}>
+          <h1 class="brand marginLeft">BEAUTIFUL LOVE</h1>
+        </Link>
       </div>
     </div>
   );
 }
 
 const linkStyle = { textDecoration: "none" };
-const menuStyle = { margin: 20 };
 export default Navbar;

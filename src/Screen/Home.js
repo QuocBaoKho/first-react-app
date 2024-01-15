@@ -1,7 +1,6 @@
 import "../Design/home.css";
 import Info from "../Component/info";
 function Home() {
-  document.title = "Dominik The North American Dream";
   return (
     <div className="App">
       <div class="inclination">
