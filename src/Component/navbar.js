@@ -80,6 +80,12 @@ function Navbar() {
         <Link to="/btflv" style={linkStyle}>
           <h1 class="brand marginLeft">BEAUTIFUL LOVE</h1>
         </Link>
+        <Link to="/uploadIMG" style={linkStyle}>
+          <h1 class="brand marginLeft">Upload Image</h1>
+        </Link>
+        <Link to="/exhb" style={linkStyle}>
+          <h1 class="brand marginLeft">Exhibition</h1>
+        </Link>
       </div>
     </div>
   );

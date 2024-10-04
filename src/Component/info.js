@@ -1,25 +1,22 @@
 import "../Design/home.css";
-function Info() {
+function Info({ src, name, age, hometown, signature }) {
   return (
     <div class="toTheLeft flexing border-bruise">
-      <img
-        alt="Dominik"
-        src="https://bloggertastic.com/wp-content/uploads/2023/11/dominik-mysterio-w1.jpg"
-      />
+      <img alt="Dominik" src={src} />
 
-      <h1 class="brand content">DOMINIK MYSTERIO</h1>
+      <h1 class="brand content">{name}</h1>
       <div class="inclination">
         <div class="toTheLeft">
-          <p class="personalInfo">Age</p>
-          <p>27</p>
+          <p class="personalInfo">Birth year:</p>
+          <p>{age}</p>
         </div>
         <div class="toTheLeft">
           <p class="personalInfo">Hometown</p>
-          <p>San Diego, CA</p>
+          <p>{hometown}</p>
         </div>
         <div class="toTheLeft">
           <p class="personalInfo">Signature</p>
-          <p>Frog Splash</p>
+          <p>{signature}</p>
         </div>
       </div>
       <p class="content">
