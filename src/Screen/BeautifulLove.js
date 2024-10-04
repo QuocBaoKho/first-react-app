@@ -73,6 +73,19 @@ const BeautifulLove = () => {
       return 1;
     }
     return num * num + TongBinhPhuong(num - 1);
+    // return addLargeNum(
+    //   multiplyLargeNumbers(num + "", num + ""),
+    //   TongBinhPhuong(num - 1)
+    // );
+  };
+  const TongBinhPhuong2 = (num) => {
+    let sum = 0;
+    for (let i = 1; i <= num; i++) {
+      let square2 = multiplyLargeNumbers(i + "", i + "");
+      let total = addLargeNum(sum + "", square2);
+      sum = Number(total);
+    }
+    return sum;
   };
   const addLargeNum = (num1, num2) => {
     let len1 = num1.length;
@@ -111,6 +124,142 @@ const BeautifulLove = () => {
       results.splice(0, 0, carried + "");
     }
     return results.join("");
+  };
+  const subtractLargeNum = (num1, num2) => {
+    let len1 = num1.length;
+    let len2 = num2.length;
+    if (len1 === 0 || len2 === 0) {
+      return "0";
+    }
+    //Tao bien chua so du
+    let carried = 0;
+    let _1IsSmaller = false;
+    let veryLarge = Math.max(len1, len2);
+    //console.log(veryLarge);
+    //Them so 0 vao dau so de cho bang do dai
+    if (len1 < len2) {
+      num1 = num1.padStart(len2, "0");
+      //console.log(len2 - len1);
+      _1IsSmaller = true;
+    } else if (len2 < len1) {
+      num2 = num2.padStart(len1, "0");
+      //console.log(len1 - len2);
+    } else
+      for (let i = 0; i < veryLarge; i++) {
+        let a1 = Number(num1.charAt(i));
+        let a2 = Number(num2.charAt(i));
+        if (a1 < a2) {
+          _1IsSmaller = true;
+        } else if (a1 > a2) {
+          break;
+        }
+      }
+    if (_1IsSmaller) {
+      let temp = num1;
+      num1 = num2;
+      num2 = temp;
+    }
+    //console.log(num1, num2);
+    //Tao mang result de chua ket qua sau khi cong
+    let results = Array(veryLarge).fill("0");
+
+    for (let i = veryLarge - 1; i >= 0; i--) {
+      //console.log(`${i}.`);
+      let a1 = Number(num1.charAt(i));
+      let a2 = Number(num2.charAt(i));
+      let carriedNext = 0;
+      if (a1 < a2) {
+        a1 += 10;
+        carriedNext = 1;
+      }
+      //console.log("a1 = " + a1);
+      //console.log("a2 = " + a2);
+      let res = a1 - a2 - carried;
+      let output = res;
+      carried = carriedNext;
+      results.splice(i, 1, output + ""); //Add the output to the array
+    }
+    console.log(results);
+
+    while (results[0] === "0" && results.length > 1) {
+      results.splice(0, 1);
+      console.log(results);
+    }
+    if (_1IsSmaller) results.splice(0, 0, "-");
+
+    return results.join("");
+  };
+  const multiplyLargeNumbers = (num1, num2) => {
+    let len1 = num1.length;
+    let len2 = num2.length;
+    let _1IsSmaller = false;
+    let negative1 = num1.charAt(0) == "-";
+    let negative2 = num2.charAt(0) == "-";
+
+    let veryLarge = Math.max(len1, len2);
+    //console.log(veryLarge);
+    //Them so 0 vao dau so de cho bang do dai
+    if (len1 < len2) {
+      num1 = num1.padStart(len2, "0");
+
+      //console.log(len2 - len1);
+      _1IsSmaller = true;
+    } else if (len2 < len1) {
+      num2 = num2.padStart(len1, "0");
+      //console.log(len1 - len2);
+    } else
+      for (let i = 0; i < veryLarge; i++) {
+        let a1 = Number(num1.charAt(i));
+        let a2 = Number(num2.charAt(i));
+        if (a1 < a2) {
+          _1IsSmaller = true;
+        } else if (a1 > a2) {
+          break;
+        }
+      }
+    if (_1IsSmaller) {
+      let temp = num1;
+      num1 = num2;
+      num2 = temp;
+    }
+    let result = Array(len1 + len2).fill("0");
+    console.log(result);
+    let i_n1 = 0; //Vi tri so su dung cua num1
+    let i_n2 = 0; //Vi tri so su dung cua num2
+    console.log(num1, num2);
+    for (let i = num1.length - 1; i >= 0; i--) {
+      let carried = 0;
+      let a1 = num1.charAt(i);
+      if (a1 == "-") continue;
+      i_n2 = 0;
+      for (let j = num2.length - 1; j >= 0; j--) {
+        let a2 = num2.charAt(j);
+        if (a2 == "-") continue;
+        let sum = a1 * a2 + carried + Number(result[i_n1 + i_n2]);
+        console.log("Total: " + sum);
+        carried = Math.floor(sum / 10);
+        result[i_n1 + i_n2] = sum % 10;
+        console.log(result.join(""));
+        i_n2++;
+      }
+      if (carried > 0) {
+        result[i_n1 + i_n2] += carried;
+      }
+      i_n1++;
+    }
+    result.reverse();
+    console.log("Result: " + result.join(""));
+    console.log(result[0] == "0");
+    //Xoa so 0 du thua
+    while (result[0] === 0 && result.length > 1) {
+      console.log("LO");
+      result.splice(0, 1);
+      console.log(result);
+    }
+    if (negative1 ^ negative2) {
+      result.splice(0, 0, "-");
+    }
+    return result.join("");
   };
   return (
     <div class="inclination">
@@ -177,8 +326,6 @@ const BeautifulLove = () => {
           }}
           onClick={() => {
             Answer();
-            let time = document.getElementById("timer").value;
-            console.log(addLargeNum("3462342352352", "217"));
           }}
         >
           Click here to get the answer
@@ -236,12 +383,12 @@ const BeautifulLove = () => {
           <NumericInput
             format={(num) => {
               setSquare(num);
-              setAnswerSq(TongBinhPhuong(Number(num)));
+              setAnswerSq(TongBinhPhuong2(Number(num)));
               return square;
             }}
             value={square}
             min={0}
-            max={100}
+            max={1000}
             step={1}
             precision={0}
             size={7}

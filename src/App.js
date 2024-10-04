@@ -5,6 +5,9 @@ import Home from "./Screen/Home";
 import Tian from "./Screen/tian";
 import Cage from "./Screen/Cage";
 import BeautifulLove from "./Screen/BeautifulLove";
+import Upload from "./Screen/Upload";
+import Exhibition from "./Screen/Exhibition";
+import PicDetails from "./Screen/PicDetails";
 function App() {
   return (
     <div className="App">
@@ -17,6 +20,12 @@ function App() {
             <Route path="/tian" element={<Tian></Tian>} />
             <Route path="/cage" element={<Cage></Cage>} />
             <Route path="/btflv" element={<BeautifulLove></BeautifulLove>} />
+            <Route path="/uploadIMG" element={<Upload></Upload>} />
+            <Route path="/exhb" element={<Exhibition></Exhibition>}></Route>
+            <Route
+              path="/exhb/details/:id"
+              element={<PicDetails></PicDetails>}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
